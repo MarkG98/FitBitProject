@@ -23,7 +23,7 @@ ylabel('Amplitude');
 f0 = 0.6494; % Hz
 
 %% Filter
-f1 = f0/25;
+f1 = f0./25;
 f2 = (f0 + 0.4)./25;
 
 [b, a] = butter(4, [f1 f2]);
@@ -36,3 +36,14 @@ plot(time, y)
 title('Filtered Sum of Y and Z Filter')
 xlabel('Time (s)');
 ylabel('Magnitude');
+
+%% Filtered FFT
+N = size(y, 1);
+frequencies_shifted = ((linspace(-pi, pi-2/N*pi, N) + pi/N*mod(N,2))*(Fs/(2*pi)));
+X = abs(fft(y));
+
+figure;
+plot(frequencies_shifted, fftshift(X))
+title('FFT Plot of Summed Z and Y Accelerometer Directions');
+xlabel('Frequency (Hz)');
+ylabel('Amplitude');
