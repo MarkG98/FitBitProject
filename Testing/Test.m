@@ -1,5 +1,5 @@
 %%
-getAverageBreath(running_time, y_running, z_running, Fs, 9)
+%getAverageBreath(running_time, y_running, z_running, Fs, 9)
 
 getAverageBreath(breathing_time, y_breathing, z_breathing, Fs, 14)
 %%

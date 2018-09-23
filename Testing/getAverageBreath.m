@@ -35,10 +35,13 @@ function [avgBreathRate] = getAverageBreath(time, y_accel, z_accel, Fs, sec)
         y = filter(b, a, summed_zy);
         
         figure;
-        plot(frequencies_shifted, fftshift(abs(fft(y))))
-        title('FFT Plot of Summed Z and Y Accelerometer Directions');
-        xlabel('Frequency (Hz)');
-        ylabel('Amplitude');
+        
+        size(y)
+        
+        plot(time(1:size(y, 1)), y)
+        title('Filtered Breathing Signal While Still (0s - 14s)');
+        xlabel('Time (s)');
+        ylabel('Acceleration (m/s^{2})');
 
         filtFFT_shifted = fftshift(abs(fft(y)));
         [~, I] = max(filtFFT_shifted(bottom:top));
