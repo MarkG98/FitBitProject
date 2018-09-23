@@ -26,7 +26,7 @@ X = abs(fft(summed_zy));
 
 figure;
 plot(frequencies_shifted, fftshift(X))
-title('FFT Plot of Summed Z and Y Accelerometer Directions');
+title('FFT Plot of Summed Z and Y Accelerometer Directions while running');
 xlabel('Frequency (Hz)');
 ylabel('Amplitude');
 

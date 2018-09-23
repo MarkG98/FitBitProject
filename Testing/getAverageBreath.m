@@ -1,4 +1,4 @@
-function [avgBreathRate] = getAverageBreath(time, y_accel, z_accel, Fs, sec)
+function [avgBreathRate, strideFreq] = getAverageBreath(time, y_accel, z_accel, Fs, sec)
     avgBreathRate = [];
     for o = 1:sec*Fs:(size(time, 1) - mod(size(time, 1), sec*Fs))
         
